@@ -4,9 +4,13 @@ body {
     padding: 0;
 }
 
+.place {
+    overflow: auto;
+}
+
 .container {
     width: 600px;
-    margin: 100px auto;
+    margin: 50px auto;
 }
 
 .progressbar {
@@ -15,9 +19,13 @@ body {
     counter-reset: step;
 }
 
+.progressbar li:hover{
+    cursor: pointer;
+}
+
 .progressbar li {
     list-style-type: none;
-    width: 25%;
+    width: 80px;
     float: left;
     font-size: 12px;
     position: relative;
@@ -66,3 +74,15 @@ body {
 .progressbar li.active+li:after {
     background-color: #55b776;
 }
+
+.progressbar li.selected {
+    color: blue;
+}
+
+.progressbar li.selected:before {
+    border-color: #5577b7;
+}
+
+/*.progressbar li.selected+li:after {
+    background-color: #5577b7;
+}*/

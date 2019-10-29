@@ -7,16 +7,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/step-progress.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 
 <body>
-    <div class="container">
-        <ul class="progressbar">
-            <li class="active">Status 1</li>
-            <li>Status 2</li>
-            <li>Status 3</li>
-            <li>Status 4</li>
-        </ul>
+    <div class="col-12 place">
+        <div class="container">
+            <ul class="progressbar">
+                <li class="selected">Status 1</li>
+                <li>Status 2</li>
+                <li>Status 3</li>
+                <li>Status 4</li>
+                <li>Status 5</li>
+                <li>Status 6</li>
+                <li>Status 7</li>
+            </ul>
+        </div>
     </div>
 
+    <!--Show details of itens-->
+    <div class="panel panel-default">
+        <div id="panelHeading" class="panel-heading"></div>
+        <div id="panelContent" class="panel-body"></div>
+    </div>
+
+
+    <!--Load script-->
+    <script src="js/master.js"></script>
+</body>
 </html>
