@@ -1,0 +1,22 @@
+{
+  "name": "process-flow",
+  "version": "1.0.0",
+  "description": "Many examples of process flow",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcelo-RM/process-flow.git"
+  },
+  "author": "Marcelo Montalvao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcelo-RM/process-flow/issues"
+  },
+  "homepage": "https://github.com/Marcelo-RM/process-flow#readme",
+  "dependencies": {
+    "@ui5/webcomponents": "^1.0.0-rc.4"
+  }
+}
