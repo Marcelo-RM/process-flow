@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-    width: 600px;
+    width: 750px;
     margin: 50px auto;
 }
 
@@ -25,9 +25,9 @@ body {
 
 .progressbar li {
     list-style-type: none;
-    width: 80px;
+    width: 100px;
     float: left;
-    font-size: 12px;
+    font-size: 16px;
     position: relative;
     text-align: center;
     text-transform: uppercase;
@@ -35,11 +35,11 @@ body {
 }
 
 .progressbar li:before {
-    width: 30px;
-    height: 30px;
-    content: counter(step);
+    width: 40px;
+    height: 40px;
+    content: ''; /*counter(step); */
     counter-increment: step;
-    line-height: 30px;
+    line-height: 40px;
     border: 2px solid #7d7d7d;
     display: block;
     text-align: center;
@@ -54,7 +54,7 @@ body {
     content: '';
     position: absolute;
     background-color: #7d7d7d;
-    top: 15px;
+    top: 20px;
     left: -50%;
     z-index: -1;
 }
@@ -76,7 +76,7 @@ body {
 }
 
 .progressbar li.selected {
-    color: blue;
+    color: #5577b7;
 }
 
 .progressbar li.selected:before {
@@ -103,4 +103,18 @@ body {
 
 .sap-body {
     background-color: #fafafa !important;
+}
+
+.item-icon-large {
+    position: absolute;
+    margin-left: 25px;
+    margin-top: -40px;
+    font-size: 20px;
+}
+
+.item-icon-small {
+    position: absolute;
+    margin-left: 30px;
+    margin-top: -40px;
+    font-size: 20px;
 }
