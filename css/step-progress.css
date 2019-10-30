@@ -86,3 +86,18 @@ body {
 /*.progressbar li.selected+li:after {
     background-color: #5577b7;
 }*/
+
+.bg-color-ui5 {
+    box-shadow: 0 0.125rem 0 0 #eff4f9, inset 0 -0.125rem 0 0 #d1e0ee !important;
+    /* background-color: #dfeaf5; */
+    background-color: rgba(158, 212, 210, 0.1803921568627451) !important;
+}
+
+.sap-button {
+    background-color: #5496cd !important;
+    border-color: #418ac7 !important;
+}
+
+.sap-body {
+    background-color: #fafafa !important;
+}
