@@ -29,6 +29,7 @@ function updateInfo(item){
     var head = document.getElementById("panelHeading");
     var cont = document.getElementById("panelContent");
 
-    head.innerText = item.innerText;
-    cont.innerText = "Exibindo conteudo referente ao " + item.innerText;
+    head.innerHTML = item.innerText + 
+                     " <span class='badge sap-button'>5</span>";
+    //cont.innerText = "Exibindo conteudo referente ao " + item.innerText;
 }
