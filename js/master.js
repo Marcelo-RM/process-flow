@@ -57,28 +57,67 @@ function updateInfo(item) {
     var head = document.getElementById("panelHeading");
     var cont = document.getElementById("panelContent");
 
+    //Substituir isso por um retorno do bd
+    var arr = [
+        {
+            ov: 1234,
+            data: '12/12/12',
+            vendedor: 'Mmontalvao'
+        },{
+            ov: 1234,
+            data: '12/12/12',
+            vendedor: 'Mmontalvao'
+        },{
+            ov: 1234,
+            data: '12/12/12',
+            vendedor: 'Mmontalvao'
+        }
+    ];
+
     head.innerHTML = item.innerText +
-        " <span class='badge sap-button'>5</span>";
-    //cont.innerText = "Exibindo conteudo referente ao " + item.innerText;
+        " <span class='badge sap-button'>"+ arr.length +"</span>";
+    cont.innerHTML = this.createList(arr, item.Id);
 }
 
+function createList(items, status){
+    var list =  "<ul class='list-group'>";
+                    // "<li class='list-group-item'>"+item.innerText+"</li>" +
+                    // "<li class='list-group-item'>"+item.innerText+"</li>" +
+                    // "<li class='list-group-item'>"+item.innerText+"</li>" +
+                    // "<li class='list-group-item'>"+item.innerText+"</li>" +
+                    // "<li class='list-group-item'>"+item.innerText+"</li>" ;
+        items.forEach(el => {
+            list += "<li class='list-group-item'>"+el.ov + el.data + el.vendedor+"</li>" ;
+        });
+    list += "</ul>";
+    return list;
+}
+
+/**
+ * Método usado para criação de gráfico do tipo rosca
+ * @param {HtmlObject} elem Objeto html em que ficará o gráfico
+ * @param {Number} vl1 Valor exibido no gráfico com a cor verde
+ * @param {Number} vl2 Valor exibido no gráfico com a cor cinza
+ */
 function createChart(elem, vl1, vl2) {
-    //var ctx = document.getElementById('myChart').getContext('2d');
-    var ctx = elem.getContext('2d');
+    //validar se está recebendo elemento para criação do grafico
+    var ctx = elem != undefined ? elem.getContext('2d') : "";
+    if(ctx == ""){return;}
+
+    //Create Chart
     var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'doughnut',
+        type: 'doughnut', //tipo do grafico
         data: {
             datasets: [{
                 data: [
-                    vl1,
-                    vl2
+                    vl1, //valor principal 'cor verde'
+                    vl2  //valor secundario 'cor cinza'
                 ],
                 backgroundColor: [
-                    '#07e30a',
-                    '#aaa',
+                    '#07e30a', //verde
+                    '#aaa', //cinza
                 ],
-                borderWidth: 0,
+                borderWidth: 0, //tamanho da borda
                 weight: 1
             }]
             /*,
@@ -88,10 +127,10 @@ function createChart(elem, vl1, vl2) {
             ]*/
         },
         options: {
-            cutoutPercentage: 70,
-            responsive: false,
+            cutoutPercentage: 70, //Quanto maior o valor menor a largura do grafico
+            responsive: false, //Não responsivo pois o tamanho é feito com CSS
             tooltips: {
-                enabled: false
+                enabled: false //Desativa tooltips pois não são necessários
             }
         }
     });
