@@ -30,7 +30,7 @@ body {
     font-size: 16px;
     position: relative;
     text-align: center;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     color: #7d7d7d;
 }
 
@@ -105,24 +105,10 @@ body {
     background-color: #fafafa !important;
 }
 
-.item-icon-large {
-    position: absolute;
-    margin-left: 25px;
+.item-icon {
+    display: block !important;
     margin-top: -40px;
-    font-size: 20px;
-}
-
-.item-icon-middle {
-    position: absolute;
-    margin-left: 27px;
-    margin-top: -40px;
-    font-size: 20px;
-}
-
-.item-icon-small {
-    position: absolute;
-    margin-left: 30px;
-    margin-top: -40px;
+    margin-bottom: 20px;
     font-size: 20px;
 }
 
