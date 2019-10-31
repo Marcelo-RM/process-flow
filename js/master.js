@@ -63,17 +63,20 @@ function updateInfo(item) {
             ov: 43434329,
             data: '12/12/2018',
             vendedor: 'Andre luiz Wiering',
-            numNFE: 12345
+            numNFE: 12345,
+            status: 'criado'
         },{
             ov: 90843217,
             data: '12/12/2018',
             vendedor: 'Andre luiz Wiering',
-            numNFE: 12345
+            numNFE: 12345,
+            status: 'validacao'
         },{
             ov: 12987334,
             data: '12/12/2018',
             vendedor: 'Andre luiz Wiering',
-            numNFE: 12345
+            numNFE: 12345,
+            status: 'faturado'
         }
     ];
 
@@ -96,7 +99,9 @@ function createList(items, status){
                     // "<li class='list-group-item'>"+item.innerText+"</li>" +
                     // "<li class='list-group-item'>"+item.innerText+"</li>" ;
         items.forEach(el => {
-            list += createListItem(el, status);//"<li class='list-group-item'>"+el.ov + el.data + el.vendedor+"</li>" ;
+            if(el.status == status){
+                list += createListItem(el, status);//"<li class='list-group-item'>"+el.ov + el.data + el.vendedor+"</li>" ;
+            }
         });
     list += "</ul>";
     return list;
