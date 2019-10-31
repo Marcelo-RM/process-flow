@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-    width: 750px;
+    width: 650px;
     margin: 50px auto;
 }
 
@@ -112,9 +112,26 @@ body {
     font-size: 20px;
 }
 
+.item-icon-middle {
+    position: absolute;
+    margin-left: 27px;
+    margin-top: -40px;
+    font-size: 20px;
+}
+
 .item-icon-small {
     position: absolute;
     margin-left: 30px;
     margin-top: -40px;
     font-size: 20px;
+}
+
+/* Usando !important para sobrescrever
+   os dados de criação dos graficos */
+.chart {
+    position: absolute !important;
+    height: 60px !important;
+    width: 109px !important;
+    margin-top: -66px !important;
+    margin-left: -4px !important;
 }

@@ -12,6 +12,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 
 <body class="sap-body">
@@ -19,7 +20,7 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand">
                     <img src="assets/UqfnLogo_fundoTransp.png" alt="União Química" style="margin-top:-10px;width:130px;height:45px;"/>
                 </a>
                 
@@ -52,37 +53,39 @@
     <div class="col-12 place col-sm-12">
         <div class="container">
             <ul class="progressbar">
-                <li class="selected">
+                <li id="status01" class="selected">
+                    <canvas id="myChart" class="chart"></canvas>
                     <i class="fas fa-clipboard-check item-icon-small"></i>
                     Status 1
                 </li>
-                <li>
-                    <i class="fas fa-clipboard-check item-icon-small"></i>
+                <li id="status02">
+                    <canvas class="chart"></canvas>
+                    <i class="fas fa-money-check-alt item-icon-large"></i>
                     Status 2
                 </li>
-                <li>
-                    <i class="fas fa-box item-icon-large"></i>
+                <li id="status03">
+                    <canvas class="chart"></canvas>
+                    <i class="fas fa-box item-icon-middle"></i>
                     Status 3
                 </li>
-                <li>
+                <li id="status04">
+                    <canvas class="chart"></canvas>
+                    <i class="fas fa-money-bill-wave item-icon-large"></i>
                     Status 4
                 </li>
-                <li>
-                    <i class="fas fa-money-bill-wave item-icon-large"></i>
+                <li id="status05">
+                    <canvas class="chart"></canvas>
+                    <i class="fas fa-shipping-fast item-icon-large"></i>
                     Status 5
                 </li>
-                <li>
-                    <i class="fas fa-shipping-fast item-icon-large"></i>
-                    Status 6
-                </li>
-                <li>
+                <li id="status06">
+                    <canvas class="chart"></canvas>
                     <i class="fas fa-map-marker-alt item-icon-small"></i>
-                    Status 7
+                    Status 6
                 </li>
             </ul>
         </div>
     </div>
-
     <!--Show details of itens-->
     <div class="panel panel-default col-sm-12" style="padding-left: 0; padding-right: 0;">
         <div id="panelHeading" class="panel-heading bg-color-ui5"></div>
