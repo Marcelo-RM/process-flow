@@ -81,7 +81,12 @@ function updateInfo(item) {
     ];
 
     head.innerHTML = item.innerText +
-        " <span class='badge sap-button'>"+ arr.length +"</span>";
+        " <span class='badge sap-button'>"+ arr.filter(
+            function(el){
+                if(el.status == item.id){
+                    return el.status
+                }
+            }).length +"</span>";
     cont.innerHTML = this.createList(arr, item.id);
 }
 
