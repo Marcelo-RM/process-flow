@@ -76,9 +76,15 @@ function updateInfo(item) {
 
     head.innerHTML = item.innerText +
         " <span class='badge sap-button'>"+ arr.length +"</span>";
-    cont.innerHTML = this.createList(arr, item.Id);
+    //cont.innerHTML = this.createList(arr, item.Id);
 }
 
+/**
+ * 
+ * @param {Array} items array de objetos contendo todos os dados da OV
+ * @param {String} status status do item clicado
+ * @returns {HtmlObject} list Lista com todos os itens já montado em detalhes
+ */
 function createList(items, status){
     var list =  "<ul class='list-group'>";
                     // "<li class='list-group-item'>"+item.innerText+"</li>" +
