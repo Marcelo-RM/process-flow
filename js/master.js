@@ -60,23 +60,26 @@ function updateInfo(item) {
     //Substituir isso por um retorno do bd
     var arr = [
         {
-            ov: 1234,
-            data: '12/12/12',
-            vendedor: 'Mmontalvao'
+            ov: 43434329,
+            data: '12/12/2018',
+            vendedor: 'Andre luiz Wiering',
+            numNFE: 12345
         },{
-            ov: 1234,
-            data: '12/12/12',
-            vendedor: 'Mmontalvao'
+            ov: 90843217,
+            data: '12/12/2018',
+            vendedor: 'Andre luiz Wiering',
+            numNFE: 12345
         },{
-            ov: 1234,
-            data: '12/12/12',
-            vendedor: 'Mmontalvao'
+            ov: 12987334,
+            data: '12/12/2018',
+            vendedor: 'Andre luiz Wiering',
+            numNFE: 12345
         }
     ];
 
     head.innerHTML = item.innerText +
         " <span class='badge sap-button'>"+ arr.length +"</span>";
-    //cont.innerHTML = this.createList(arr, item.Id);
+    cont.innerHTML = this.createList(arr, item.id);
 }
 
 /**
@@ -93,10 +96,32 @@ function createList(items, status){
                     // "<li class='list-group-item'>"+item.innerText+"</li>" +
                     // "<li class='list-group-item'>"+item.innerText+"</li>" ;
         items.forEach(el => {
-            list += "<li class='list-group-item'>"+el.ov + el.data + el.vendedor+"</li>" ;
+            list += createListItem(el, status);//"<li class='list-group-item'>"+el.ov + el.data + el.vendedor+"</li>" ;
         });
     list += "</ul>";
     return list;
+}
+
+function createListItem(item, status){
+    var listItem =
+    "<li class='list-group-item row'>" +
+    "<h5 class='mb-1'>Ordem de venda: "+ item.ov +"</h5>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+        "<div class='d-flex w-100 justify-content-between'>" +
+            "<p class='text-muted'>Vendedor: "+ item.vendedor +"</p>" +
+            "<p class='text-muted'>Data venda: "+ item.data +"</p>" +
+        "</div>" +
+    "</div>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+        "<div class='d-flex w-100 justify-content-between'>" +
+            "<p class='text-muted'>N° NFe: "+ item.numNFE +"</p>" +
+            "<p class='text-muted'>Info 00004</p>" +
+        "</div>" +
+    "</div>" +
+    "</li>"
+
+    return listItem;
+
 }
 
 /**
