@@ -55,7 +55,7 @@ body {
     content: '';
     position: absolute;
     background-color: #7d7d7d;
-    top: 20px;
+    top: 25px;
     left: -50%;
     z-index: -1;
 }
