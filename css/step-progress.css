@@ -115,6 +115,8 @@ body {
 /* Usando !important para sobrescrever
    os dados de criação dos graficos */
 .chart {
+    position: absolute;
+    margin-top: -60px;
     /* position: absolute !important;
     height: 60px !important;
     width: 109px !important;
@@ -129,6 +131,4 @@ body {
 }
 
 canvas {
-    position: absolute;
-    margin-top: -60px;
 }

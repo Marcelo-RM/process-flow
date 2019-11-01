@@ -55,7 +55,7 @@ function updateInfo(item) {
 
     var arr = getItems();
     head.innerHTML = item.innerText +
-        "<span class='badge sap-button'>"+ arr.filter(
+        "<span class='badge sap-button' style='margin-left:5px'>"+ arr.filter(
             function(el){
                 if(el.status == item.id){
                     return el.status
@@ -128,8 +128,10 @@ function updateChart(){
         
         var size2 = items.length - size1;
 
-        var elem = item.children[0];
-        debugger;
+        //Verificação de grafico, apos a primeira chamada o grafica passa a ficar depois
+        //de uma div para verificação de tamanho
+        var elem = item.children[0].tagName == "DIV" ? item.children[1] : item.children[0];
+        
         createChart(elem, size1, size2);
     });
     changeColor(listItems[0]);
