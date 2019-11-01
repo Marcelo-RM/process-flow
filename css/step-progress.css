@@ -9,7 +9,7 @@ body {
 }
 
 .containerStatus {
-    width: 650px;
+    width: 720px;
     height: 60px;
     margin: 50px auto;
 }
@@ -26,7 +26,7 @@ body {
 
 .progressbar li {
     list-style-type: none;
-    width: 100px;
+    width: 120px;
     float: left;
     font-size: 16px;
     position: relative;
@@ -36,8 +36,8 @@ body {
 }
 
 .progressbar li:before {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     content: ''; /*counter(step); */
     counter-increment: step;
     line-height: 40px;
@@ -108,7 +108,7 @@ body {
 
 .item-icon {
     display: block !important;
-    margin-top: -40px;
+    margin-top: -45px;
     margin-bottom: 20px;
     font-size: 20px;
 }
@@ -117,17 +117,6 @@ body {
    os dados de criação dos graficos */
 .chart {
     position: absolute;
-    margin-top: -60px;
+    margin-top: -70px;
     max-width: 200px;
-    /* position: absolute !important;
-    height: 60px !important;
-    width: 109px !important;
-    margin-top: -66px !important;
-    margin-left: -4px !important; 
-
-    position: absolute !important;
-    height: 53px !important;
-    width: 104px !important;
-    margin-top: -57px !important;
-    margin-left: -2px !important; */
 }

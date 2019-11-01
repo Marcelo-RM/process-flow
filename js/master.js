@@ -166,7 +166,7 @@ function createChart(elem, vl1, vl2) {
                     vl2  //valor secundario 'cor cinza'
                 ],
                 backgroundColor: [
-                    '#07e30a', //verde
+                    '#3ada3a', //verde
                     '#aaa', //cinza
                 ],
                 borderWidth: 0, //tamanho da borda
@@ -208,6 +208,24 @@ function getItems(){
             vendedor: 'Andre luiz Wiering',
             numNFE: 12345,
             status: 'faturado'
+        },{
+            ov: 12987334,
+            data: '12/12/2018',
+            vendedor: 'Andre luiz Wiering',
+            numNFE: 12345,
+            status: 'validacao'
+        },{
+            ov: 12987334,
+            data: '12/12/2018',
+            vendedor: 'Andre luiz Wiering',
+            numNFE: 12345,
+            status: 'transito'
+        },{
+            ov: 12987334,
+            data: '12/12/2018',
+            vendedor: 'Andre luiz Wiering',
+            numNFE: 12345,
+            status: 'transito'
         }
     ];
 }
