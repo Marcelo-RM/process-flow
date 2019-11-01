@@ -193,37 +193,37 @@ function getItems(){
         {
             ov: 43434329,
             data: '12/12/2018',
-            vendedor: 'Andre luiz Wiering',
+            vendedor: 'Marcelo Montalvão',
             numNFE: 12345,
             status: 'criado'
         },{
             ov: 90843217,
             data: '12/12/2018',
-            vendedor: 'Andre luiz Wiering',
+            vendedor: 'Marcelo Montalvão',
             numNFE: 12345,
             status: 'validacao'
         },{
             ov: 12987334,
             data: '12/12/2018',
-            vendedor: 'Andre luiz Wiering',
+            vendedor: 'Marcelo Montalvão',
             numNFE: 12345,
             status: 'faturado'
         },{
             ov: 12987334,
             data: '12/12/2018',
-            vendedor: 'Andre luiz Wiering',
+            vendedor: 'Marcelo Montalvão',
             numNFE: 12345,
             status: 'validacao'
         },{
             ov: 12987334,
             data: '12/12/2018',
-            vendedor: 'Andre luiz Wiering',
+            vendedor: 'Marcelo Montalvão',
             numNFE: 12345,
             status: 'transito'
         },{
             ov: 12987334,
             data: '12/12/2018',
-            vendedor: 'Andre luiz Wiering',
+            vendedor: 'Marcelo Montalvão',
             numNFE: 12345,
             status: 'transito'
         }
