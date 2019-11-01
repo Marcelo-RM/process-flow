@@ -1,22 +1,15 @@
+'use strict';
+
 window.onload = function () {
     // Create click function to status items
     var listItems = document.querySelectorAll("ul.progressbar li");
     listItems.forEach(item => {
         //Create method for click item
         item.onclick = changeColor;
-
-        //Change this; Creating charts for items
-        var size1 = Math.floor(Math.random() * 10);
-        var size2 = Math.floor(Math.random() * 10);
-        var elem = item.children[0];
-        this.createChart(elem, size1, size2);
     });
 
     //Set info for the first item in panel
-    this.updateInfo(listItems[0]);
-
-    //CREATE CHART
-    this.createChart();
+    //this.updateInfo(listItems[0]);
 }
 
 /**
@@ -24,19 +17,22 @@ window.onload = function () {
  * @param {MouseEvent} event 
  */
 function changeColor(event) {
-    var className = event.target.className;
-    var listItem = event.target;
+    if(event.className !== undefined){
+        var className = event.className;
+        var listItem = event;
+    } else {
+        className = event.target.className;
+        listItem = event.target;
+    }
 
     //Se a classe conter fas o clique foi no icone
     //É necessário alterar classe parent
     if (className.includes("fas") || className.includes("chart")) {
         listItem = event.target.parentElement;
     }
-    if (className != "selected") {
-        removeSelectedClass();
-        listItem.className = "selected";
-        updateInfo(listItem);
-    }
+    removeSelectedClass();
+    listItem.className = "selected";
+    updateInfo(listItem);
 }
 
 /**
@@ -57,37 +53,16 @@ function updateInfo(item) {
     var head = document.getElementById("panelHeading");
     var cont = document.getElementById("panelContent");
 
-    //Substituir isso por um retorno do bd
-    var arr = [
-        {
-            ov: 43434329,
-            data: '12/12/2018',
-            vendedor: 'Andre luiz Wiering',
-            numNFE: 12345,
-            status: 'criado'
-        },{
-            ov: 90843217,
-            data: '12/12/2018',
-            vendedor: 'Andre luiz Wiering',
-            numNFE: 12345,
-            status: 'validacao'
-        },{
-            ov: 12987334,
-            data: '12/12/2018',
-            vendedor: 'Andre luiz Wiering',
-            numNFE: 12345,
-            status: 'faturado'
-        }
-    ];
-
+    var arr = getItems();
     head.innerHTML = item.innerText +
-        " <span class='badge sap-button'>"+ arr.filter(
+        "<span class='badge sap-button'>"+ arr.filter(
             function(el){
                 if(el.status == item.id){
                     return el.status
                 }
-            }).length +"</span>";
-    cont.innerHTML = this.createList(arr, item.id);
+            }).length +
+        "</span>";
+    cont.innerHTML = createList(arr, item.id);
 }
 
 /**
@@ -135,6 +110,32 @@ function createListItem(item, status){
 }
 
 /**
+ * Metodo chamado durante clique no botão pesquisar
+ * Será substituido por um método c# para consulta ao banco de dados
+ * Criar método que chame uma função c# pode ser a melhor solução
+ */
+function updateChart(){
+    var listItems = document.querySelectorAll("ul.progressbar li");
+    var items = getItems();
+    listItems.forEach(item => {
+        //Change this; Creating charts for items
+        var size1 = items.filter(
+            function(el){
+                if(el.status == item.id){
+                    return el.status
+                }
+            }).length;
+        
+        var size2 = items.length - size1;
+
+        var elem = item.children[0];
+        debugger;
+        createChart(elem, size1, size2);
+    });
+    changeColor(listItems[0]);
+}
+
+/**
  * Método usado para criação de gráfico do tipo rosca
  * @param {HtmlObject} elem Objeto html em que ficará o gráfico
  * @param {Number} vl1 Valor exibido no gráfico com a cor verde
@@ -169,10 +170,34 @@ function createChart(elem, vl1, vl2) {
         },
         options: {
             cutoutPercentage: 70, //Quanto maior o valor menor a largura do grafico
-            responsive: false, //Não responsivo pois o tamanho é feito com CSS
+            responsive: true, //Não responsivo pois o tamanho é feito com CSS
             tooltips: {
                 enabled: false //Desativa tooltips pois não são necessários
             }
         }
     });
+}
+
+function getItems(){
+    return [
+        {
+            ov: 43434329,
+            data: '12/12/2018',
+            vendedor: 'Andre luiz Wiering',
+            numNFE: 12345,
+            status: 'criado'
+        },{
+            ov: 90843217,
+            data: '12/12/2018',
+            vendedor: 'Andre luiz Wiering',
+            numNFE: 12345,
+            status: 'validacao'
+        },{
+            ov: 12987334,
+            data: '12/12/2018',
+            vendedor: 'Andre luiz Wiering',
+            numNFE: 12345,
+            status: 'faturado'
+        }
+    ];
 }

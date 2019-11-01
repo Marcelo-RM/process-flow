@@ -115,9 +115,20 @@ body {
 /* Usando !important para sobrescrever
    os dados de criação dos graficos */
 .chart {
-    position: absolute !important;
+    /* position: absolute !important;
     height: 60px !important;
     width: 109px !important;
     margin-top: -66px !important;
-    margin-left: -4px !important;
+    margin-left: -4px !important; 
+
+    position: absolute !important;
+    height: 53px !important;
+    width: 104px !important;
+    margin-top: -57px !important;
+    margin-left: -2px !important; */
+}
+
+canvas {
+    position: absolute;
+    margin-top: -60px;
 }
