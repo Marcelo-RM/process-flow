@@ -117,6 +117,7 @@ body {
 .chart {
     position: absolute;
     margin-top: -60px;
+    max-width: 200px;
     /* position: absolute !important;
     height: 60px !important;
     width: 109px !important;
@@ -128,7 +129,4 @@ body {
     width: 104px !important;
     margin-top: -57px !important;
     margin-left: -2px !important; */
-}
-
-canvas {
 }
