@@ -41,17 +41,31 @@
     </nav>
     <!--End header-->
     <!--Input Code-->
-    <div class="col-lg-6 col-6 col-sm-4">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for...">
-            <span class="input-group-btn">
-            <button class="btn btn-default" onclick="updateChart();" type="button">Go!</button>
-            </span>
-        </div><!-- /input-group -->
-    </div><!-- /.col-lg-6 -->
+    <form class="container accordion">
+        <div class="form-group row">
+            <div class="col-sm-6 col-xs-10 col-lg-6">
+                <input type="text" class="form-control" id="cnpj" placeholder="CNPJ" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6 col-xs-10 col-lg-6">
+                <input type="text" class="form-control" id="ordemVenda" placeholder="Ordem de Venda">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6 col-xs-10 col-lg-6">
+                <input type="text" class="form-control" id="pedidoCli" placeholder="Número do pedido">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6">
+                <button class="btn btn-default" onclick="updateChart();" type="button">Pesquisar</button>
+            </div>
+        </div>
+    </form>
     <!--End input-->
     <div class="col-12 place col-sm-12">
-        <div class="container">
+        <div class="containerStatus">
             <ul class="progressbar">
                 <li id="criado" class="selected">
                     <canvas id="myChart" class="chart"></canvas>

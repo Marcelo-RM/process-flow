@@ -90,7 +90,7 @@ function createList(items, status){
 function createListItem(item, status){
     var listItem =
     "<li class='list-group-item row'>" +
-    "<h5 class='mb-1'>Ordem de venda: "+ item.ov +"</h5>" +
+    "<h5 class='mb-1'>Numero pedido: "+ item.ov +"</h5>" +
     "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
         "<div class='d-flex w-100 justify-content-between'>" +
             "<p class='text-muted'>Vendedor: "+ item.vendedor +"</p>" +
@@ -115,6 +115,14 @@ function createListItem(item, status){
  * Criar método que chame uma função c# pode ser a melhor solução
  */
 function updateChart(){
+    var cnpj = document.getElementById("cnpj");
+    if(cnpj.value == ""){
+        cnpj.style.border = '1px solid red';
+        //return;
+    }
+    else {
+        cnpj.style.border = '1px solid #ccc';
+    }
     var listItems = document.querySelectorAll("ul.progressbar li");
     var items = getItems();
     listItems.forEach(item => {

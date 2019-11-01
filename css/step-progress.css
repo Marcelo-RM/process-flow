@@ -8,8 +8,9 @@ body {
     overflow: auto;
 }
 
-.container {
+.containerStatus {
     width: 650px;
+    height: 60px;
     margin: 50px auto;
 }
 
