@@ -122,7 +122,7 @@ function createListItem(item, status){
 function detailForStatusEntregue(item){
     return "<li class='list-group-item row'>" +
     "<h4 class='mb-1'>"+ item.material +"</h4>" +
-    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-12'>" +
         "<div class='d-flex w-100 justify-content-between'>" +
             //"<p class='text-muted'>Status: "+ item.sts +"</p>" +
             "<p class='text-muted'>Data Separação: "+ item.dataSep +"</p>" +
@@ -130,7 +130,7 @@ function detailForStatusEntregue(item){
             "<p class='text-muted'>Data aprovação NF-e: "+ item.dataNFE +"</p>" +
         "</div>" +
     "</div>" +
-    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-12'>" +
         "<div class='d-flex w-100 justify-content-between'>" +
             "<p class='text-muted'>Saiu p/ Entrega: "+ item.dataMinuta +"</p>" +
             "<p class='text-muted'>Recebimento: "+ item.dataRecebimento +"</p>" +
@@ -142,7 +142,7 @@ function detailForStatusEntregue(item){
 function detailForStatusTransito(item){
     return "<li class='list-group-item row'>" +
     "<h4 class='mb-1'>"+ item.material +"</h4>" +
-    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-12'>" +
         "<div class='d-flex w-100 justify-content-between'>" +
             //"<p class='text-muted'>Status: "+ item.sts +"</p>" +
             "<p class='text-muted'>Data Separação: "+ item.dataSep +"</p>" +
@@ -150,7 +150,7 @@ function detailForStatusTransito(item){
             "<p class='text-muted'>Data aprovação NF-e: "+ item.dataNFE +"</p>" +
         "</div>" +
     "</div>" +
-    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-12'>" +
         "<div class='d-flex w-100 justify-content-between'>" +
             "<p class='text-muted'>Saiu p/ Entrega: "+ item.dataMinuta +"</p>" +
         "</div>" +
@@ -161,7 +161,7 @@ function detailForStatusTransito(item){
 function detailForStatusFaturamento(item){
     return "<li class='list-group-item row'>" +
     "<h4 class='mb-1'>"+ item.material +"</h4>" +
-    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-12'>" +
         "<div class='d-flex w-100 justify-content-between'>" +
             //"<p class='text-muted'>Status: "+ item.sts +"</p>" +
             "<p class='text-muted'>Data Separação: "+ item.dataSep +"</p>" +
@@ -175,7 +175,7 @@ function detailForStatusFaturamento(item){
 function detailForStatusSeparacao(item){
     return "<li class='list-group-item row'>" +
     "<h4 class='mb-1'>"+ item.material +"</h4>" +
-    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-12'>" +
         "<div class='d-flex w-100 justify-content-between'>" +
             //"<p class='text-muted'>Status: "+ item.sts +"</p>" +
             "<p class='text-muted'>Data Separação: "+ item.dataSep +"</p>" +
@@ -187,7 +187,7 @@ function detailForStatusSeparacao(item){
 function detailForStatusCriado(item){
     return "<li class='list-group-item row'>" +
     "<h4 class='mb-1'>"+ item.material +"</h4>" +
-    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-12'>" +
         "<div class='d-flex w-100 justify-content-between'>" +
             "<p class='text-muted'>Status: "+ item.sts +"</p>" +
         "</div>" +
@@ -212,21 +212,47 @@ function updateChart(){
     var listItems = document.querySelectorAll("ul.progressbar li");
     var items = getItems();
     listItems.forEach(item => {
-        //Change this; Creating charts for items
+        //Change this; Creating charts for ; Cor verde
         var size1 = items.filter(
             function(el){
+                // var arrStatus = ['criado','validacao','separacao','faturado','transito','entregue'];
+                // var stsIndex = arrStatus.findIndex(function(elem){return elem == el.status});
+                // var stsIndex2 = arrStatus.findIndex(function(elem){return elem == item.id});
+                // debugger;
+                // if(stsIndex2 <= stsIndex){
+                //     return el.status;
+                // }
+                
                 if(el.status == item.id){
                     return el.status
                 }
             }).length;
+        //Verifica se há algum item recusado para exibição
+        var recusados = items.filter(
+            function(el){
+                if(el.sts == "recusado"){
+                    return el.sts
+                }
+            }
+        );
         
-        var size2 = items.length - size1;
+        //Cor Vermelha
+        var size3 = recusados.length;
+        //Caso não for status criado remove os itens de cor vermelha
+        if(item.id != "criado"){
+            size3 = 0
+        }else{
+            size1 -= size3;
+        }
+
+        //Cor Cinza
+        var size2 = items.length - (size1 + size3);
 
         //Verificação de grafico, apos a primeira chamada o grafica passa a ficar depois
         //de uma div para verificação de tamanho
         var elem = item.children[0].tagName == "DIV" ? item.children[1] : item.children[0];
         
-        createChart(elem, size1, size2);
+        createChart(elem, size1, size2, size3);
     });
     //Seleciona o primeiro item da lista
     changeColor(listItems[0]);
@@ -238,7 +264,9 @@ function updateChart(){
  * @param {Number} vl1 Valor exibido no gráfico com a cor verde
  * @param {Number} vl2 Valor exibido no gráfico com a cor cinza
  */
-function createChart(elem, vl1, vl2) {
+function createChart(elem, valorVerde, valorCinza, valorVermelho) {
+    //Verifica se ha valor vermelho
+    if(!valorVermelho){valorVermelho = 0}
     //validar se está recebendo elemento para criação do grafico
     var ctx = elem != undefined ? elem.getContext('2d') : "";
     if(ctx == ""){return;}
@@ -249,12 +277,14 @@ function createChart(elem, vl1, vl2) {
         data: {
             datasets: [{
                 data: [
-                    vl1, //valor principal 'cor verde'
-                    vl2  //valor secundario 'cor cinza'
+                    valorVerde, //Quantidade de itens de cor verde
+                    valorCinza, //Quantidade de itens de cor cinza
+                    valorVermelho  //Quantidade de itens de cor vermelha
                 ],
                 backgroundColor: [
                     '#3ada3a', //verde
                     '#aaa', //cinza
+                    '#f02929' //Vermelho
                 ],
                 borderWidth: 0, //tamanho da borda
                 weight: 1
@@ -326,7 +356,7 @@ function getItems(){
             dataNFE: '13/12/2018 15:00:00',
             dataMinuta: '15/12/2018 09:30:00',
             dataRecebimento: '15/12/2018 11:30:00',
-            status: 'transito'
+            status: 'separacao'
         },{
             material: 'material 006',
             sts: 'recusado',
@@ -336,7 +366,7 @@ function getItems(){
             dataRecebimento: '',
             numNFE: '',
             dataNFE: '',
-            status: ''
+            status: 'criado'
         }
     ];
 }
