@@ -88,25 +88,111 @@ function createList(items, status){
 }
 
 function createListItem(item, status){
-    var listItem =
-    "<li class='list-group-item row'>" +
-    "<h5 class='mb-1'>Numero pedido: "+ item.ov +"</h5>" +
-    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
-        "<div class='d-flex w-100 justify-content-between'>" +
-            "<p class='text-muted'>Vendedor: "+ item.vendedor +"</p>" +
-            "<p class='text-muted'>Data venda: "+ item.data +"</p>" +
-        "</div>" +
-    "</div>" +
-    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
-        "<div class='d-flex w-100 justify-content-between'>" +
-            "<p class='text-muted'>N° NFe: "+ item.numNFE +"</p>" +
-            "<p class='text-muted'>Info 00004</p>" +
-        "</div>" +
-    "</div>" +
-    "</li>"
+    var listItem;
+    var arrStatus = [
+        'criado',
+        'validacao',
+        'separacao',
+        'faturado',
+        'transito',
+        'entregue'
+    ];
+
+    var thisStatus = arrStatus[arrStatus.findIndex(function(el){return el == status})];
+
+    if(thisStatus == "criado" || thisStatus == "validacao"){
+        listItem = detailForStatusCriado(item);
+    }
+    if(thisStatus == "separacao"){
+        listItem = detailForStatusSeparacao(item);
+    }
+    if(thisStatus == "faturado"){
+        listItem = detailForStatusFaturamento(item);
+    }
+    if(thisStatus == "transito"){
+        listItem = detailForStatusTransito(item);
+    }
+    if(thisStatus == "entregue"){
+        listItem = detailForStatusEntregue(item);
+    }
 
     return listItem;
+}
 
+function detailForStatusEntregue(item){
+    return "<li class='list-group-item row'>" +
+    "<h4 class='mb-1'>"+ item.material +"</h4>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+        "<div class='d-flex w-100 justify-content-between'>" +
+            //"<p class='text-muted'>Status: "+ item.sts +"</p>" +
+            "<p class='text-muted'>Data Separação: "+ item.dataSep +"</p>" +
+            "<p class='text-muted'>Número NF-e: "+ item.numNFE +"</p>" +
+            "<p class='text-muted'>Data aprovação NF-e: "+ item.dataNFE +"</p>" +
+        "</div>" +
+    "</div>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+        "<div class='d-flex w-100 justify-content-between'>" +
+            "<p class='text-muted'>Saiu p/ Entrega: "+ item.dataMinuta +"</p>" +
+            "<p class='text-muted'>Recebimento: "+ item.dataRecebimento +"</p>" +
+        "</div>" +
+    "</div>" +
+    "</li>";
+}
+
+function detailForStatusTransito(item){
+    return "<li class='list-group-item row'>" +
+    "<h4 class='mb-1'>"+ item.material +"</h4>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+        "<div class='d-flex w-100 justify-content-between'>" +
+            //"<p class='text-muted'>Status: "+ item.sts +"</p>" +
+            "<p class='text-muted'>Data Separação: "+ item.dataSep +"</p>" +
+            "<p class='text-muted'>Número NF-e: "+ item.numNFE +"</p>" +
+            "<p class='text-muted'>Data aprovação NF-e: "+ item.dataNFE +"</p>" +
+        "</div>" +
+    "</div>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+        "<div class='d-flex w-100 justify-content-between'>" +
+            "<p class='text-muted'>Saiu p/ Entrega: "+ item.dataMinuta +"</p>" +
+        "</div>" +
+    "</div>" +
+    "</li>";
+}
+
+function detailForStatusFaturamento(item){
+    return "<li class='list-group-item row'>" +
+    "<h4 class='mb-1'>"+ item.material +"</h4>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+        "<div class='d-flex w-100 justify-content-between'>" +
+            //"<p class='text-muted'>Status: "+ item.sts +"</p>" +
+            "<p class='text-muted'>Data Separação: "+ item.dataSep +"</p>" +
+            "<p class='text-muted'>Número NF-e: "+ item.numNFE +"</p>" +
+            "<p class='text-muted'>Data aprovação NF-e: "+ item.dataNFE +"</p>" +
+        "</div>" +
+    "</div>" +
+    "</li>";
+}
+
+function detailForStatusSeparacao(item){
+    return "<li class='list-group-item row'>" +
+    "<h4 class='mb-1'>"+ item.material +"</h4>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+        "<div class='d-flex w-100 justify-content-between'>" +
+            //"<p class='text-muted'>Status: "+ item.sts +"</p>" +
+            "<p class='text-muted'>Data Separação: "+ item.dataSep +"</p>" +
+        "</div>" +
+    "</div>" +
+    "</li>";
+}
+
+function detailForStatusCriado(item){
+    return "<li class='list-group-item row'>" +
+    "<h4 class='mb-1'>"+ item.material +"</h4>" +
+    "<div class='col-sm-6 col-lg-6 col-md-6 col-xs-6'>" +
+        "<div class='d-flex w-100 justify-content-between'>" +
+            "<p class='text-muted'>Status: "+ item.sts +"</p>" +
+        "</div>" +
+    "</div>" +
+    "</li>";
 }
 
 /**
@@ -142,6 +228,7 @@ function updateChart(){
         
         createChart(elem, size1, size2);
     });
+    //Seleciona o primeiro item da lista
     changeColor(listItems[0]);
 }
 
@@ -180,7 +267,7 @@ function createChart(elem, vl1, vl2) {
         },
         options: {
             cutoutPercentage: 70, //Quanto maior o valor menor a largura do grafico
-            responsive: true, //Não responsivo pois o tamanho é feito com CSS
+            responsive: true, //Ajustar automaticamente ao tamanho do elemento pai
             tooltips: {
                 enabled: false //Desativa tooltips pois não são necessários
             }
@@ -191,41 +278,65 @@ function createChart(elem, vl1, vl2) {
 function getItems(){
     return [
         {
-            ov: 43434329,
-            data: '12/12/2018',
+            material: 'material 001',
+            sts: 'ativo',
+            dataSep: '12/12/2018 12:00:00',
             vendedor: 'Marcelo Montalvão',
             numNFE: 12345,
+            dataNFE: '13/12/2018 15:00:00',
+            dataMinuta: '15/12/2018 09:30:00',
+            dataRecebimento: '15/12/2018 11:30:00',
             status: 'criado'
         },{
-            ov: 90843217,
-            data: '12/12/2018',
+            material: 'material 002',
+            sts: 'ativo',
+            dataSep: '12/12/2018 12:00:00',
             vendedor: 'Marcelo Montalvão',
             numNFE: 12345,
+            dataNFE: '13/12/2018 15:00:00',
+            dataMinuta: '15/12/2018 09:30:00',
+            dataRecebimento: '15/12/2018 11:30:00',
             status: 'validacao'
         },{
-            ov: 12987334,
-            data: '12/12/2018',
+            material: 'material 003',
+            sts: 'ativo',
+            dataSep: '12/12/2018 12:00:00',
             vendedor: 'Marcelo Montalvão',
             numNFE: 12345,
+            dataNFE: '13/12/2018 15:00:00',
+            dataMinuta: '15/12/2018 09:30:00',
+            dataRecebimento: '15/12/2018 11:30:00',
             status: 'faturado'
         },{
-            ov: 12987334,
-            data: '12/12/2018',
+            material: 'material 004',
+            sts: 'ativo',
+            dataSep: '12/12/2018 12:00:00',
             vendedor: 'Marcelo Montalvão',
             numNFE: 12345,
+            dataNFE: '13/12/2018 15:00:00',
+            dataMinuta: '15/12/2018 09:30:00',
+            dataRecebimento: '15/12/2018 11:30:00',
             status: 'validacao'
         },{
-            ov: 12987334,
-            data: '12/12/2018',
+            material: 'material 005',
+            sts: 'ativo',
+            dataSep: '12/12/2018 12:00:00',
             vendedor: 'Marcelo Montalvão',
             numNFE: 12345,
+            dataNFE: '13/12/2018 15:00:00',
+            dataMinuta: '15/12/2018 09:30:00',
+            dataRecebimento: '15/12/2018 11:30:00',
             status: 'transito'
         },{
-            ov: 12987334,
-            data: '12/12/2018',
+            material: 'material 006',
+            sts: 'recusado',
+            dataSep: '',
             vendedor: 'Marcelo Montalvão',
-            numNFE: 12345,
-            status: 'transito'
+            dataMinuta: '',
+            dataRecebimento: '',
+            numNFE: '',
+            dataNFE: '',
+            status: ''
         }
     ];
 }
