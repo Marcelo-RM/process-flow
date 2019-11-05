@@ -211,6 +211,86 @@ function updateChart(){
     }
     var listItems = document.querySelectorAll("ul.progressbar li");
     var items = getItems();
+
+    var qtdRecusado = 0, qtdCriado = 0, qtdValidacao = 0, qtdSeparacao = 0,
+        qtdFaturado = 0, qtdTransito = 0, qtdEntregue = 0;
+    items.forEach(function(el){
+        if(el.status == "criado" && el.sts == "recusado"){
+            qtdRecusado += 1;
+        }
+        if(el.status == "criado"){
+            qtdCriado += 1;
+        }
+        if(el.status == "validacao"){
+            qtdCriado += 1;
+            qtdValidacao += 1;
+        }
+        if(el.status == "separacao"){
+            qtdCriado += 1;
+            qtdValidacao += 1;
+            qtdSeparacao += 1;
+        }
+        if(el.status == "faturado"){
+            qtdCriado += 1;
+            qtdValidacao += 1;
+            qtdSeparacao += 1;
+            qtdFaturado += 1;
+        }
+        if(el.status == "transito"){
+            qtdCriado += 1;
+            qtdValidacao += 1;
+            qtdSeparacao += 1;
+            qtdFaturado += 1;
+            qtdTransito += 1;
+        }
+        if(el.status == "entregue"){
+            qtdCriado += 1;
+            qtdValidacao += 1;
+            qtdSeparacao += 1;
+            qtdFaturado += 1;
+            qtdTransito += 1;
+            qtdEntregue += 1;
+        }
+    });
+    listItems.forEach(function(item){
+        var greenSize = 0;
+        var graySize = 0;
+        var redSize = qtdRecusado;
+
+        if(item.id == "criado"){
+            greenSize = qtdCriado;
+            graySize = items.length - greenSize;
+        }
+        if(item.id == "validacao"){
+            redSize = 0;
+            greenSize = qtdValidacao;
+            graySize = items.length - greenSize;
+        }
+        if(item.id == "separacao"){
+            redSize = 0;
+            greenSize = qtdSeparacao;
+            graySize = items.length - greenSize;
+        }
+        if(item.id == "faturado"){
+            redSize = 0;
+            greenSize = qtdFaturado;
+            graySize = items.length - greenSize;
+        }
+        if(item.id == "transito"){
+            redSize = 0;
+            greenSize = qtdTransito;
+            graySize = items.length - greenSize;
+        }
+        if(item.id == "entregue"){
+            redSize = 0;
+            greenSize = qtdEntregue;
+            graySize = items.length - greenSize;
+        }
+
+        var elem = item.children[0].tagName == "DIV" ? item.children[1] : item.children[0];
+        createChart(elem, greenSize, graySize, redSize);
+    })
+    /*
     listItems.forEach(item => {
         //Change this; Creating charts for ; Cor verde
         var size1 = items.filter(
@@ -255,6 +335,7 @@ function updateChart(){
         createChart(elem, size1, size2, size3);
     });
     //Seleciona o primeiro item da lista
+    */
     changeColor(listItems[0]);
 }
 
