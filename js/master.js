@@ -50,8 +50,8 @@ function removeSelectedClass() {
  * @param {HtmlObject} item Status clicado
  */
 function updateInfo(item) {
-    var head = document.getElementById("panelHeading");
-    var cont = document.getElementById("panelContent");
+    var head = $("#panelHeading")[0];
+    var cont = $("#panelContent")[0];
 
     var arr = getItems();
     head.innerHTML = item.innerText +
@@ -125,7 +125,7 @@ function createListItem(item, status){
  * Criar método que chame uma função c# pode ser a melhor solução
  */
 function updateChart(){
-    var cnpj = document.getElementById("cnpj");
+    var cnpj = $("#cnpj")[0];
     if(cnpj.value == ""){
         cnpj.style.border = '1px solid red';
         //return;
