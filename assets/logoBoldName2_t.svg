@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="300mm"
+   width="400mm"
    height="100mm"
-   viewBox="0 0 300 100"
+   viewBox="0 0 400 100"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="logoBoldName2.svg">
+   sodipodi:docname="logoBoldName2_t.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -26,14 +26,14 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="532.81205"
-     inkscape:cy="229.59465"
+     inkscape:cx="769.8751"
+     inkscape:cy="221.51343"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1366"
-     inkscape:window-height="703"
-     inkscape:window-x="0"
+     inkscape:window-height="743"
+     inkscape:window-x="1366"
      inkscape:window-y="0"
      inkscape:window-maximized="1" />
   <metadata
@@ -77,20 +77,20 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:47.44193268px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.18604827"
-       x="87.277458"
-       y="236.00249"
+       style="font-style:normal;font-weight:normal;font-size:57.73116302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.44327903"
+       x="71.441116"
+       y="287.18683"
        id="text5108"
-       transform="scale(1.0112976,0.98882856)"><tspan
+       transform="scale(1.2306284,0.81259297)"><tspan
          sodipodi:role="line"
          id="tspan5106"
-         x="87.277458"
-         y="236.00249"
-         style="stroke-width:1.18604827">𝕸𝖆𝖗𝖈𝖊𝖑𝖔 </tspan><tspan
+         x="71.441116"
+         y="287.18683"
+         style="stroke-width:1.44327903">𝕸𝖆𝖗𝖈𝖊𝖑𝖔 </tspan><tspan
          sodipodi:role="line"
-         x="87.277458"
-         y="297.21371"
-         style="stroke-width:1.18604827"
+         x="71.441116"
+         y="361.67355"
+         style="stroke-width:1.44327903"
          id="tspan5110">𝕸𝖔𝖓𝖙𝖆𝖑𝖛𝖆𝖔</tspan></text>
   </g>
 </svg>
