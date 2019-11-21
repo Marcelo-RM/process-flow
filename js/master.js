@@ -425,10 +425,10 @@ function toast(value){
         showHideTransition: 'plain',
         hideAfter: 4000,
         position: {
-          left: '40%',
+          right: 20,
           top: 30
         }
-    })
+    });
 }
 
 /*
